@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".OnboardingStep1Activity">
+
+    <!-- Flecha de regreso -->
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/black"
+        tools:ignore="ContentDescription" />
+
+    <!-- Placeholder para la imagen de la familia (puedes reemplazar con tu propio drawable) -->
+    <ImageView
+        android:id="@+id/family_image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/my_custom_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_arrow"
+        tools:ignore="ContentDescription" />
+
+    <!-- Título de la pantalla -->
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="¡Ajusta Baby Guard 365 perfectamente a tus necesidades!"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/family_image" />
+
+    <!-- Descripción -->
+    <TextView
+        android:id="@+id/description_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="Ahora prepararemos la app para ti y para tu bebé, para adaptarla perfectamente a nuestras necesidades."
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_text" />
+
+    <!-- Botón para continuar -->
+    <Button
+        android:id="@+id/continue_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#5EC5FD"
+        android:padding="16dp"
+        android:text="Continuar"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

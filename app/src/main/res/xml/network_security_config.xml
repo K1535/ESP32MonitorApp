@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Permite tráfico HTTP (no seguro) para la IP de tu ESP32 -->
+        <!-- ¡ES CRÍTICO que esta IP coincida EXACTAMENTE con la de tu ESP32! -->
+        <domain includeSubdomains="true">192.168.163.191</domain>
+    </domain-config>
+
+    <!--
+    // OPCIONAL: Si, por alguna razón, la configuración de dominio específico no funciona
+    // y necesitas permitir TODO el tráfico HTTP para pruebas (MENOS SEGURO para producción).
+    // Descomenta la sección <base-config> y comenta <domain-config> si lo usas.
+    // <base-config cleartextTrafficPermitted="true">
+    //     <trust-anchors>
+    //         <certificates src="system" />
+    //     </trust-anchors>
+    // </base-config>
+    -->
+</network-security-config>

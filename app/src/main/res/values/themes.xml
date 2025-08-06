@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Tema principal -->
+    <style name="Theme.ESP32MonitorApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Puedes añadir colores o atributos aquí -->
+    </style>
+
+    <!-- Tema especial para Splash con fondo negro -->
+    <style name="Theme.BabyWard.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+    </style>
+
+    <!-- Estilo para personalizar el DatePickerDialog -->
+    <style name="AppTheme.DatePickerDialog" parent="Theme.AppCompat.Light.Dialog">
+        <!-- Color para los botones de Aceptar/Cancelar -->
+        <item name="colorAccent">@color/light_blue</item>
+        <!-- Fondo del diálogo -->
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+</resources>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".OnboardingStep3Activity">
+
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/black"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/progress_bar_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="@+id/back_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+        app:layout_constraintStart_toEndOf="@+id/back_arrow"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/progress_bar_segment_active"
+            android:layout_marginEnd="4dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/progress_bar_segment_active"
+            android:layout_marginEnd="4dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/progress_bar_segment_inactive" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="¿Cuándo nació tu bebé?"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_arrow" />
+
+    <ImageView
+        android:id="@+id/baby_image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="62dp"
+        android:src="@drawable/ic_calendar"
+        android:background="@drawable/baby_image_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_text"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/date_selector_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@drawable/date_selector_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/baby_image">
+
+        <TextView
+            android:id="@+id/selected_date_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:text="Selecciona la fecha"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/baby_age_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_selector_layout">
+
+        <TextView
+            android:id="@+id/baby_age_months"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="meses"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#5EC5FD"
+        android:padding="16dp"
+        android:text="Siguiente"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+</androidx.constraintlayout.widget.ConstraintLayout>
