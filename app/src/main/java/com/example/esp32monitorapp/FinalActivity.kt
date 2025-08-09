@@ -68,15 +68,22 @@ class FinalActivity : AppCompatActivity() {
             val generoBebe = intent.getStringExtra("BABY_GENDER") ?: "niño" // Valor por defecto
 
             // 2. Guardar los datos del bebé en SharedPreferences para persistencia
-            val sharedPref = getSharedPreferences("BabyInfo", Context.MODE_PRIVATE)
-            with(sharedPref.edit()) {
+            val babyPref = getSharedPreferences("BabyInfo", Context.MODE_PRIVATE)
+            with(babyPref.edit()) {
                 putString("BABY_NAME", nombreBebe)
                 putString("BABY_BIRTH_DATE", fechaNacimientoBebe)
                 putString("BABY_GENDER", generoBebe)
                 apply()
             }
 
-            // 3. Crear un nuevo Intent para ir a MainActivity
+            // 3. ¡IMPORTANTE! Marcar el onboarding como completado en un archivo diferente
+            val onboardingPref = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+            with(onboardingPref.edit()) {
+                putBoolean("is_onboarding_complete", true)
+                apply()
+            }
+
+            // 4. Crear un nuevo Intent para ir a MainActivity
             val intentToMain = Intent(this, MainActivity::class.java)
 
             // Limpia la pila de actividades para que el usuario no pueda volver a las pantallas de onboarding

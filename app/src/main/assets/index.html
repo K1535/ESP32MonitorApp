@@ -190,6 +190,11 @@
             --primary-color: #FF69B4; /* Rosa fuerte */
             --secondary-color: #FFB6C1; /* Rosa claro */
         }
+        .theme-blue {
+            --primary-color: #5EC5FD; /* Azul principal */
+            --secondary-color: #90d3f7; /* Azul claro */
+        }
+
 
         /* Aplicación de variables CSS */
         .nav-button.active-nav { color: var(--primary-color); }
@@ -687,7 +692,8 @@
 
 <!-- Flatpickr JS -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script> <!-- Spanish locale for Flatpickr -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // La URL de tu ESP32
@@ -1005,7 +1011,9 @@
         }
 
         function updateThermometerColor(temp) {
+            // Elimina las clases de colores anteriores
             thermometerFill.classList.remove('bg-red-500', 'bg-green-500', 'bg-blue-500');
+            // Añade la clase de color basada en el rango de temperatura
             if (temp < 20) {
                 thermometerFill.classList.add('bg-blue-500');
             } else if (temp >= 20 && temp <= 25) {
@@ -1046,7 +1054,10 @@
                         soundDisplay.textContent = "¡ALERTA!";
                         soundBars.forEach(bar => bar.style.backgroundColor = 'red');
                     } else {
-                        soundDisplay.textContent = data.sonido === 1 ? 'Alto' : 'Bajo';
+                        // Usar el valor del sensor de sonido para controlar la visualización de las barras
+                        soundDisplay.textContent = data.sonido !== undefined ? data.sonido : 'Bajo';
+                        // Aquí podrías mapear el valor de 'sonido' para controlar la cantidad de barras encendidas
+                        // Por ahora, lo mantenemos simple.
                         soundBars.forEach(bar => bar.style.backgroundColor = '#94a3b8');
                     }
                 } else {

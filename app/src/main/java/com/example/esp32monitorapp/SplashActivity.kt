@@ -1,5 +1,6 @@
 package com.example.esp32monitorapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -44,9 +45,22 @@ class SplashActivity : AppCompatActivity() {
         // Espera un momento y luego inicia la actividad de bienvenida
         val delayMillis = 2500L
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, OnboardingStep1Activity::class.java)
-            startActivity(intent)
-            finish()
-        }, delayMillis)
+            // Obtiene una referencia a SharedPreferences
+            val sharedPref = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+
+            // Comprueba si el onboarding ha sido completado
+            val isOnboardingComplete = sharedPref.getBoolean("is_onboarding_complete", false)
+
+            if (isOnboardingComplete) {
+                // Si el onboarding está completo, ve a la pantalla de opciones de administrador
+                val intent = Intent(this, AdminActivity::class.java)
+                startActivity(intent)
+            } else {
+                // Si no, ve a la primera pantalla de onboarding
+                val intent = Intent(this, OnboardingStep1Activity::class.java)
+                startActivity(intent)
+            }
+            finish() // Cierra la actividad de Splash para que el usuario no pueda volver a ella
+        }, delayMillis) // Un retraso de 2.5 segundos para mostrar la animación completa
     }
 }
